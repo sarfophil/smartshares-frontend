@@ -1,0 +1,19 @@
+<div style="width:500px; height:600px; padding:20px; text-align:center; margin: auto;" >
+    <div style="width:450px; height:550px; padding:20px; text-align:center; border: 5px solid #787878; font-family: monospace;">
+          <div *ngIf="clientData != undefined">
+                <span style="float:left; font-size: 15px;"><b>SmartShares</b></span>
+                <br><br>
+                <span style=" font-size: 25px;">Receipt of Shares</span>
+                <br><br>
+                <span style="font-size:30px"><b>{{clientData.firstname+' '+clientData.middlename+' '+clientData.lastname | uppercase}}</b></span><br/><br/>
+                <span style="font-size:16px">{{clientData.clientId}}</span> <br/><br/>
+                <span style="font-size:16px">AMOUNT: {{'GHS '+clientData.amount}}</span> <br/><br/>
+                <span style="font-size:25px"><i>dated</i></span><br>
+                
+                <span style="font-size:30px">{{clientData.createdDate | date}}</span>
+          </div> 
+          <div *ngIf="clientData == undefined">
+            <p class="text-center">No Data Available</p>
+          </div>
+    </div>
+    </div>

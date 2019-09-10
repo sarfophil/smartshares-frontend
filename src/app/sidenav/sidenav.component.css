@@ -1,0 +1,43 @@
+.entity-card{
+    border: 3px solid transparent;
+    border-top-color: #3f51b5;
+    margin: 10px;
+    font-size: 20px;
+}
+
+.entity-search{
+    width: 100%;
+}
+
+.pgbar{
+    padding-bottom: 0;
+}
+
+
+.mat-card-header-text{
+    margin: 0 !important;
+}
+
+.current-entity-card{
+    border: 3px solid transparent;
+    border-top-color: #3f51b5;
+    margin: 10px;
+    font-size: 1.0rem;
+}
+
+.fullnameEntity{
+    border: 1px solid #eee;
+}
+
+.form-control{
+    border: 1px solid #ccc;
+    padding: 7px 14px 9px;
+    transition: 0.4s;
+    font-family: 'Lexend Deca', sans-serif;
+}
+
+.avatar-img img{
+    width: 50px;
+    height: 50px;
+}
+

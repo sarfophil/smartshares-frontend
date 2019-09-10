@@ -1,0 +1,176 @@
+<form [formGroup]="entityForm" (submit)="process(entityForm.value)">
+<mat-card class="dashboard-card">
+        <mat-card-content>
+          <table style="width: 100%">
+             <tr>
+                 <td>
+                        <mat-form-field class="entity-form">
+                                <input matInput placeholder="Firstname*" autocomplete="off" type="text"   formControlName="firstname">
+                        </mat-form-field>
+                </td>
+                 <td>
+                        <mat-form-field class="entity-form">
+                                <input matInput placeholder="Middlename" autocomplete="off" type="text" formControlName="middlename">
+                        </mat-form-field>
+                 </td>
+                 <td>
+                        <mat-form-field class="entity-form">
+                                <input matInput placeholder="Lastname*" autocomplete="off" type="text" formControlName="lastname">
+                        </mat-form-field>
+                 </td>
+             </tr>  
+          </table>
+
+        </mat-card-content>
+
+        <!--Shareholder Info-->
+         <h6 class="divider-title">SHAREHOLDER</h6>
+         <table style="width: 100%">
+             <tr>
+                 <td>
+                        <mat-form-field>
+                                <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Dob*" formControlName="dob">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker ></mat-datepicker>
+                        </mat-form-field>
+                 </td>
+                 <td>
+                        <mat-radio-group aria-label="ID Type*" formControlName="ssn" style="padding-top: 5px;">
+                                <mat-radio-button value="true">SSNIT</mat-radio-button>&nbsp;
+                                <mat-radio-button value="false">TIN</mat-radio-button>
+                        </mat-radio-group>&nbsp;&nbsp;
+                 </td>
+                 <td>
+                        <mat-form-field class="entity-form">
+                                <input matInput placeholder="SSNIT/TIN NUMBER*" type="text" autocomplete="off" formControlName="ssnNumber">
+                        </mat-form-field>
+                 </td>
+                 <td>
+                        <mat-form-field>
+                                <mat-label>Gender*</mat-label>
+                                <select formControlName="gender" matNativeControl>
+                                  <option value="1">
+                                       Male 
+                                  </option>
+                                  <option value="0">
+                                        Female 
+                                   </option>
+                                </select>
+                        </mat-form-field>
+                 </td>
+             </tr>
+         </table>
+
+         <!--Contact Info-->
+         <h6 class="divider-title">CONTACT INFO</h6>
+         <table style="width: 100%">
+            <tr>
+                        <td>
+                                <mat-form-field class="entity-form">
+                                        <input matInput placeholder="Address 1*"  type="text" autocomplete="off"   formControlName='address1'>
+                                </mat-form-field>
+                        </td>
+                        <td>
+                                <mat-form-field >
+                                        <mat-label>Email Type*</mat-label>
+                                        <select matNativeControl formControlName="emailType" matNativeControl>
+                                          <option value="personal">
+                                               Personal 
+                                          </option>
+                                          <option value="work">
+                                                Work 
+                                           </option>
+                                        </select>
+                                </mat-form-field>
+                        </td>
+            </tr>
+            <tr>
+                        <td>
+                                <mat-form-field class="entity-form" >
+                                        <input matInput placeholder="Address 2" type="text" autocomplete="off" formControlName="address2">
+                                </mat-form-field>
+                        </td>
+                        <td>
+                               
+                            <mat-form-field class="entity-form">
+                                    <input matInput placeholder="Email*" type="email" autocomplete="off" formControlName="email">
+                            </mat-form-field>
+                            
+                        </td>
+            </tr>
+            <tr>
+                    <td>
+                            <mat-form-field class="entity-form">
+                                    <input matInput placeholder="Address 3" autocomplete="off" type="text" formControlName="address3">
+                            </mat-form-field>
+                    </td>
+                    <td>
+                            <mat-form-field class="entity-form">
+                                    <input matInput placeholder="Home" type="tel" autocomplete="off" formControlName="homeContactNumber">
+                            </mat-form-field>
+                    </td>
+             </tr>
+             <tr>
+                    <td>
+                            <mat-form-field class="entity-form">
+                                    <input matInput placeholder="Address 4" autocomplete="off" type="text" formControlName="address4">
+                            </mat-form-field>
+                    </td>
+                    <td>
+                            
+                            <mat-form-field class="entity-form">
+                                    <input matInput placeholder="Work" type="tel" autocomplete="off" formControlName="workContactNumber">
+                            </mat-form-field>
+                    </td>
+             </tr>
+             <tr>
+                    <td>
+                            <mat-form-field class="entity-form">
+                                    <input matInput placeholder="City*" type="text" autocomplete="off" type="text" formControlName="city">
+                            </mat-form-field>
+                    </td>
+                    <td>
+                            <mat-form-field class="entity-form">
+                                    <input matInput placeholder="Cell*" type="tel" autocomplete="off" formControlName="cellContact">
+                            </mat-form-field>
+                    </td>
+             </tr>
+             <tr>
+                    <td>
+                            <mat-form-field class="entity-form">
+                                    <input matInput placeholder="Country*" autocomplete="off" type="text" formControlName="country">
+                            </mat-form-field>
+                    </td>
+                    <td>
+                        <mat-form-field class="entity-form">
+                                <input matInput type="number" placeholder="Zip code*" autocomplete="off" formControlName="zipCode">
+                        </mat-form-field>
+                    </td>
+             </tr>
+
+         </table>
+
+
+        
+
+         <table style="width: 100%">
+            <tr>
+                <td style="width: 60%;">
+                        <input type="hidden"  id="action">
+                </td>
+                
+                <td>
+                        <button mat-raised-button class="savebtn" onclick="document.getElementById('action').value='save'" [disabled]="!entityForm.valid"  *ngIf="state.newEntity">SAVE</button>&nbsp;
+                        <!-- <button mat-raised-button  class="deceasebtn"  *ngIf="!state.newEntity">DECEASED</button>&nbsp; -->
+                        <button mat-raised-button onclick="document.getElementById('action').value= 'edit'"  [disabled]="!entityForm.valid" color="primary" *ngIf="!state.newEntity">UPDATE</button> &nbsp;
+                        <button mat-raised-button class="deletebtn"  *ngIf="!state.newEntity && !isActive">DEACTIVATE ACCOUNT</button>
+                        <button mat-raised-button class="activatebtn" onclick="document.getElementById('action').value='deactivate'" color="accent" *ngIf="!state.newEntity && isActive">ACTIVATE ACCOUNT</button>
+                </td>
+            </tr>
+        </table>
+
+        
+        
+
+</mat-card>
+</form>

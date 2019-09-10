@@ -1,0 +1,2 @@
+Update shareholder : tin and tinNumber do not update.
+* Client Search retreives more than one results which results in 500 response status

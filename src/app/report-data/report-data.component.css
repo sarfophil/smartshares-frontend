@@ -1,0 +1,11 @@
+.report-table thead tr th{
+    text-align: center;
+}
+
+.report-table tbody tr td{
+    text-align: center;
+}
+
+.logo{
+    font-weight: 800;
+}

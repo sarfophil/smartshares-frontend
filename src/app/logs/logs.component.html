@@ -1,0 +1,29 @@
+<mat-card class="log-card">
+    <mat-card-title>Logs</mat-card-title>
+    <mat-card-content>
+        
+            <div class="search-container">
+                <form [formGroup]="searchInput" (submit)="filter(searchInput.value)">
+               
+                <mat-form-field >
+                    <input matInput [min]="startMinDate" [max]="startMaxDate" formControlName="startDate" [matDatepicker]="startDatePicker" placeholder="Select Start Date">
+                    <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #startDatePicker ></mat-datepicker>
+                </mat-form-field> |
+                <mat-form-field>
+                    <input matInput [min]="endMinDate" [max]="endMaxDate" formControlName="endDate" [matDatepicker]="endDatePicker" placeholder="Select End Date">
+                    <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+                    <mat-datepicker #endDatePicker ></mat-datepicker>
+                </mat-form-field>
+                <button type="submit" mat-raised-button color="primary" [disabled]="!searchInput.valid">Go</button>
+                <button type="button" mat-raised-button color="accent" (click)="reset()">Reset</button>
+             </form>
+            </div><hr>
+
+            <div *ngIf="searchData">
+                    <app-log-data [searchParams]="searchData"></app-log-data>
+            </div>
+           
+        
+    </mat-card-content>
+</mat-card>

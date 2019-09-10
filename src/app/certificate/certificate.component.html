@@ -1,0 +1,12 @@
+<mat-card class="certificate-card">
+        <mat-card-title>Certificate</mat-card-title>
+        <mat-card-content>
+            <kendo-pdf-export #pdf paperSize="A4" margin="2cm">
+                <app-certs style="display: block; margin:auto;" [clientData]="clientData"></app-certs>
+            </kendo-pdf-export>
+            <button mat-button color="primary"
+                  *ngIf="clientData"
+                  kendo-button (click)="pdf.saveAs('certificate.pdf')"
+                  style="display: block; margin:auto;"><b>PRINT CERTIFICATE</b></button>
+        </mat-card-content>
+</mat-card>

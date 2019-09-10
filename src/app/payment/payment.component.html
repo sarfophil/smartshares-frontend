@@ -1,0 +1,28 @@
+<mat-card class="payment-card">
+        <mat-card-title>Payment</mat-card-title>
+        <mat-card-content>
+            <div *ngIf="clientData">
+                    <div *ngIf="clientData.isActive">
+                        <form [formGroup]="paymentForm" (submit)="processPayment(paymentForm.value)">
+                        <p>Please enter an Amount</p>
+                        <mat-form-field class="entity-form">
+                                <input matInput placeholder="Amount" type="number" formControlName="amount">
+                        </mat-form-field>
+                        <button mat-raised-button color="accent" type="submit" [disabled]="!paymentForm.valid">Save</button>
+                        </form>
+                    </div>
+                    <div *ngIf="!clientData.isActive">
+                        <p class="text-danger">Client is inactive</p>
+                    </div>
+            </div>  
+            
+           
+            
+            <div *ngIf="!clientData">
+                    <p class="text-danger">No client selected.</p>
+            </div>
+            
+            <mat-spinner *ngIf="isLoading"></mat-spinner>
+        </mat-card-content>
+</mat-card>
+

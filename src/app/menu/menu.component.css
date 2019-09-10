@@ -1,0 +1,16 @@
+.smart-menu li{
+    display: inline-block;
+}
+
+.smart-menu li a{
+    color: #fff;
+}
+
+.smart-menu{
+    background: #5C6BC0;
+    color: #fff;
+}
+
+.smart-menu .active{
+    color: #ff4081 !important;
+}

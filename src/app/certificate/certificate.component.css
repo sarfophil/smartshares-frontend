@@ -1,0 +1,13 @@
+.certificate-card{
+    background: transparent;
+    width: 100%;
+    box-shadow: none;
+}
+
+.cert-card{
+    display: block;
+    margin: auto;
+    border: 1px solid #eee;
+    height: 500px;
+    width: 30%;
+}

@@ -1,0 +1,23 @@
+.footer{
+    height: 10%;
+    background: #3f51b5;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+.footer h4{
+    color: #fff;
+    padding: 30px;
+    font-size: 1.5rem;
+    font-weight: 100;
+}
+
+.footer span{
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.footer .row{
+    padding: 10px;
+}

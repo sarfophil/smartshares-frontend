@@ -1,0 +1,36 @@
+
+.dashboard-card{
+    box-shadow: none;
+    zoom: 90%;
+}
+
+.mat-form-field{
+    width: 90% !important;
+    font-size: 1.3em;
+}
+
+.divider-title{
+    color: #ff4081;
+}
+
+.entity-form input[type="text"]{
+    text-transform: uppercase !important;
+}
+
+.savebtn{
+    background: #00c853;
+    color: #fff !important;
+    box-shadow: none;
+}
+
+.deceasebtn{
+    background: #ff1744;
+    color: #fff !important;
+    box-shadow: none;
+}
+
+.deletebtn{
+    background: #ff1744;
+    color: #fff !important;
+    box-shadow: none;
+}

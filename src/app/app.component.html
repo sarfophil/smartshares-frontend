@@ -1,0 +1,16 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+<router-outlet *ngIf="pathname == '/login'"></router-outlet>
+
+
+<mat-sidenav-container style="height: 90%;" *ngIf="pathname != '/login'">
+        <mat-sidenav mode="side" opened style="background: #f4f4f4">
+            <app-sidenav></app-sidenav>
+        </mat-sidenav>
+        <mat-sidenav-content>
+                <app-menu></app-menu>
+                <router-outlet></router-outlet>
+        </mat-sidenav-content>
+</mat-sidenav-container>
+<app-footer *ngIf="pathname != '/login'"></app-footer>
+

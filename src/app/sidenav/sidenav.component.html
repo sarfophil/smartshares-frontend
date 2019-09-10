@@ -1,0 +1,79 @@
+
+<mat-card class="entity-card">
+        <mat-card-header>
+                <div mat-card-avatar class="avatar-img">
+                        <img src="assets/img/identicon.png">
+                </div>
+                <mat-card-title>{{account.name | uppercase}}</mat-card-title>
+                <mat-card-subtitle>{{account.email}}</mat-card-subtitle>
+        </mat-card-header>
+</mat-card>
+
+
+<mat-card class="entity-card">
+        <mat-card-title>Entity Search</mat-card-title>
+        <mat-card-content>
+                        <mat-tab-group>
+                                <mat-tab label="Entity Code">
+                                        <br>
+                                        <form [formGroup] = "searchByClientCodeForm" (submit)="searchByClientCode(searchByClientCodeForm.value)">
+                                                <mat-form-field class="entity-search">
+                                                        <input formControlName="clientCode" autocomplete="off" matInput placeholder="Entity Code">
+                                                </mat-form-field>        
+                                                <button mat-flat-button type="submit" [disabled]='!searchByClientCodeForm.valid' class="entity-search-btn pull-right" color="primary">Search</button>
+                                        </form>
+                                </mat-tab>
+                                <mat-tab label="Entity Fullname"> 
+                                        <form [formGroup] = "searchByClientCodeFullnameForm" (submit)="searchByClientFullname(searchByClientCodeFullnameForm.value)">
+                                        <mat-form-field class="entity-search">
+                                                <input matInput placeholder="Entity Firstname" autocomplete="off" formControlName="firstname">
+                                        </mat-form-field> 
+
+                                        <mat-form-field class="entity-search">
+                                                <input matInput placeholder="Entity Middlename" autocomplete="off" formControlName="middlename">
+                                        </mat-form-field> 
+
+                                        <mat-form-field class="entity-search">
+                                                <input matInput placeholder="Entity Lastname" autocomplete="off" formControlName="lastname">
+                                        </mat-form-field> 
+
+                                        <button mat-flat-button submit class="entity-search-btn pull-right" [disabled]="!searchByClientCodeFullnameForm.valid" color="primary">Search</button>
+                                        </form>
+                                </mat-tab>
+                        </mat-tab-group><br>
+                        <mat-progress-bar mode="indeterminate" *ngIf="isLoading" class="pgbar"></mat-progress-bar>
+        </mat-card-content>
+        
+</mat-card>
+
+
+
+<mat-card class="current-entity-card">
+        <mat-card-title>Current Entity</mat-card-title>
+        <mat-card-content>
+                <div>
+                    <input type="text" readonly class="form-control" value="{{currentEntityForm.fullname | uppercase}}"   placeholder="Fullname"/>
+                </div><br>
+                <div>
+                    <input type="text" readonly class="form-control" value="{{currentEntityForm.code}}"  placeholder="Code"/>
+                </div><br>
+                <div>
+                    <input type="text" readonly class="form-control {{ currentEntityForm.status == 'Active'?'text-success':'text-danger'}}" value="{{currentEntityForm.status}}"  placeholder="Entity Status"/>
+                </div><br>
+                <div>
+                    <mat-radio-group aria-label="" value="{{currentEntityForm.numberType}}" disabled>
+                        <mat-radio-button value="1" checked>SSNIT</mat-radio-button>&nbsp;
+                        <mat-radio-button value="0">TIN</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div>
+                        <input type="text" readonly class="form-control" value="{{currentEntityForm.numberTypeValue}}"  placeholder="TIN: 394999"/>
+                </div>
+
+                <div *ngIf="currentEntityForm.entryDate != ''"><br>
+                        <p>Entry Date : {{currentEntityForm.entryDate}}</p>
+                        <p>Entered By : {{currentEntityForm.createdBy}}</p>
+                </div>
+
+        </mat-card-content>
+</mat-card>
